@@ -1,0 +1,112 @@
+import random
+
+class RandomPCGamePicker:
+    def __init__(self, games):
+        self.games = games
+        self.unpicked_games = list(games)
+    
+    def pick_game(self):
+        if not self.unpicked_games:
+            raise ValueError("All games have been picked.")
+        picked_game = random.choice(self.unpicked_games)
+        self.unpicked_games.remove(picked_game)
+        return picked_game
+
+# List of 100 best PC games with release year and developer
+pc_games = [
+    ("The Witcher 3: Wild Hunt", 2015, "CD Projekt Red"),
+    ("Half-Life 2", 2004, "Valve"),
+    ("Portal 2", 2011, "Valve"),
+    ("The Elder Scrolls V: Skyrim", 2011, "Bethesda Game Studios"),
+    ("Red Dead Redemption 2", 2018, "Rockstar Games"),
+    ("Grand Theft Auto V", 2013, "Rockstar Games"),
+    ("Minecraft", 2011, "Mojang"),
+    ("BioShock", 2007, "2K Boston, 2K Australia"),
+    ("Deus Ex", 2000, "Ion Storm"),
+    ("Doom (2016)", 2016, "id Software"),
+    ("Dark Souls III", 2016, "FromSoftware"),
+    ("Mass Effect 2", 2010, "BioWare"),
+    ("Dishonored", 2012, "Arkane Studios"),
+    ("Fallout: New Vegas", 2010, "Obsidian Entertainment"),
+    ("Civilization VI", 2016, "Firaxis Games"),
+    ("StarCraft II", 2010, "Blizzard Entertainment"),
+    ("World of Warcraft", 2004, "Blizzard Entertainment"),
+    ("The Sims", 2000, "Maxis"),
+    ("Diablo III", 2012, "Blizzard Entertainment"),
+    ("Overwatch", 2016, "Blizzard Entertainment"),
+    ("League of Legends", 2009, "Riot Games"),
+    ("Counter-Strike: Global Offensive", 2012, "Valve, Hidden Path Entertainment"),
+    ("Team Fortress 2", 2007, "Valve"),
+    ("Left 4 Dead 2", 2009, "Valve"),
+    ("Fortnite", 2017, "Epic Games"),
+    ("PUBG: Battlegrounds", 2017, "PUBG Corporation"),
+    ("The Elder Scrolls III: Morrowind", 2002, "Bethesda Game Studios"),
+    ("Star Wars: Knights of the Old Republic", 2003, "BioWare"),
+    ("The Witcher 2: Assassins of Kings", 2011, "CD Projekt Red"),
+    ("Planescape: Torment", 1999, "Black Isle Studios"),
+    ("Baldur's Gate II: Shadows of Amn", 2000, "BioWare"),
+    ("XCOM: Enemy Unknown", 2012, "Firaxis Games"),
+    ("Divinity: Original Sin II", 2017, "Larian Studios"),
+    ("Path of Exile", 2013, "Grinding Gear Games"),
+    ("Terraria", 2011, "Re-Logic"),
+    ("Undertale", 2015, "Toby Fox"),
+    ("Cuphead", 2017, "Studio MDHR"),
+    ("Hades", 2020, "Supergiant Games"),
+    ("Hollow Knight", 2017, "Team Cherry"),
+    ("Subnautica", 2018, "Unknown Worlds Entertainment"),
+    ("Dead Cells", 2018, "Motion Twin"),
+    ("Celeste", 2018, "Maddy Makes Games"),
+    ("Ori and the Blind Forest", 2015, "Moon Studios"),
+    ("Stardew Valley", 2016, "ConcernedApe"),
+    ("The Outer Worlds", 2019, "Obsidian Entertainment"),
+    ("Cyberpunk 2077", 2020, "CD Projekt Red"),
+    ("Control", 2019, "Remedy Entertainment"),
+    ("Sekiro: Shadows Die Twice", 2019, "FromSoftware"),
+    ("Horizon Zero Dawn", 2020, "Guerrilla Games"),
+    ("Resident Evil 2", 2019, "Capcom"),
+    ("Resident Evil 4", 2005, "Capcom"),
+    ("Resident Evil 7: Biohazard", 2017, "Capcom"),
+    ("Metro Exodus", 2019, "4A Games"),
+    ("Wolfenstein II: The New Colossus", 2017, "MachineGames"),
+    ("Prey", 2017, "Arkane Studios"),
+    ("Shadow of the Tomb Raider", 2018, "Eidos-Montréal"),
+    ("Far Cry 5", 2018, "Ubisoft Montreal"),
+    ("Assassin's Creed Odyssey", 2018, "Ubisoft Quebec"),
+    ("Assassin's Creed IV: Black Flag", 2013, "Ubisoft Montreal"),
+    ("Dishonored 2", 2016, "Arkane Studios"),
+    ("Hitman 2", 2018, "IO Interactive"),
+    ("Metal Gear Solid V: The Phantom Pain", 2015, "Kojima Productions"),
+    ("Nier: Automata", 2017, "PlatinumGames"),
+    ("Yakuza 0", 2015, "Sega"),
+    ("Darkest Dungeon", 2016, "Red Hook Studios"),
+    ("Frostpunk", 2018, "11 bit studios"),
+    ("Faster Than Light (FTL)", 2012, "Subset Games"),
+    ("Slay the Spire", 2017, "MegaCrit"),
+    ("Stellaris", 2016, "Paradox Development Studio"),
+    ("Crusader Kings III", 2020, "Paradox Development Studio"),
+    ("Cities: Skylines", 2015, "Colossal Order"),
+    ("Kerbal Space Program", 2015, "Squad"),
+    ("Factorio", 2020, "Wube Software"),
+    ("RimWorld", 2018, "Ludeon Studios"),
+    ("Don't Starve", 2013, "Klei Entertainment"),
+    ("Prison Architect", 2015, "Introversion Software"),
+    ("Warframe", 2013, "Digital Extremes"),
+    ("Elite Dangerous", 2014, "Frontier Developments"),
+    ("The Talos Principle", 2014, "Croteam"),
+    ("The Witness", 2016, "Jonathan Blow"),
+    ("Life is Strange", 2015, "Dontnod Entertainment"),
+    ("Firewatch", 2016, "Campo Santo"),
+    ("Gone Home", 2013, "The Fullbright Company"),
+    ("Oxenfree", 2016, "Night School Studio"),
+    ("Her Story", 2015, "Sam Barlow"),
+    ("Inside", 2016, "Playdead"),
+    ("Journey", 2019, "Thatgamecompany"),
+    ("Little Nightmares", 2017, "Tarsier Studios"),
+    ("The Stanley Parable", 2013, "Galactic Cafe"),
+    ("Papers, Please", 2013, "Lucas Pope"),
+    ("The Banner Saga", 2014, "Stoic Studio"),
+]
+
+# Instantiate and use the RandomPCGamePicker
+picker = RandomPCGamePicker(pc_games)
+print(picker.pick_game())
